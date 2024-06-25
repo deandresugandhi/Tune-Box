@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 const NumberToNotation = () => {
   const [accidental, setAccidental] = useState('');
   const [assignedKey, setAssignedKey] = useState('');
+  const [newScaleList, setNewScaleList] = useState([]);
   const [filename, setFilename] = useState('');
   const [ogFilename, setOgFilename] = useState('');
   const [document, setDocument] = useState(null);
@@ -13,8 +14,6 @@ const NumberToNotation = () => {
     scale: "A Bb B C Db D Eb E F Gb G Ab".split(' '),
     scale_2: "A A# B C C# D D# E F F# G G#".split(' ')
   };
-
-  
 
   const cleanChart = () => {
     const universalDictionary = scaleDict.numerical_scale_2.reduce((acc, key, idx) => {
