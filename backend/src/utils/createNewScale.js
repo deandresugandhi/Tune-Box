@@ -1,8 +1,4 @@
-import { saveAs } from 'fs';
-import * as jsdocx from 'jsdocx'
-
-
-const createNewScale = async (accidental, scaleDict, assignedKey) => {
+const createNewScale = (accidental, scaleDict, assignedKey) => {
     const chosenScale = accidental === 'flat' ? scaleDict.scale : scaleDict.scale_2;
     const posScale = chosenScale.indexOf(assignedKey);
     const newScale = [];
@@ -13,3 +9,5 @@ const createNewScale = async (accidental, scaleDict, assignedKey) => {
 
     return newScale;
 }
+
+export default createNewScale

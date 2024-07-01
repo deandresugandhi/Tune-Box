@@ -1,4 +1,4 @@
-const cleanChart = async (document, scaleDict) => {
+const cleanChart = (document, scaleDict) => {
   const zipArraysToObject = (keys, values) => {
     return keys.reduce((acc, key, index) => {
       acc[key] = values[index];
@@ -11,16 +11,20 @@ const cleanChart = async (document, scaleDict) => {
     scaleDict.numerical_scale
   );
 
-  const replaceParagraph = (paragraph) => {
-    paragraph.children.forEach(run => {
-      // Escape special characters for accurate matching
-      const escapedText = run.text.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-      const regex = new RegExp(Object.keys(universalDictionary).join('|'), 'g');
-      run.text = run.text.replace(regex, match => universalDictionary[match]);
+  const changeAllToFlat = (document) => {
+    document.paragraphs.forEach(paragraph => {
+      paragraph.runs.forEach(run => {
+        for (const[key, value] of Object.entries(universalDictionary)) {
+          if (run.bold == null) {
+            run.text = run.text.replace(key, value);
+            run.text = run.text.replace(/,/g, '');
+          };
+        };
+      });
     });
   };
 
-  document.body.forEachChild(replaceParagraph);
+  changeAllToFlat(document)
 
   return document
 }

@@ -1,5 +1,5 @@
-
-
-const saveResult = async (document, fileName) => {
+const saveResult = (document, fileName) => {
     document.save(fileName);
 }
+
+export default saveResult

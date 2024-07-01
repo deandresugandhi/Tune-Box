@@ -1,16 +1,22 @@
-import { Document, Paragraph, TextRun, patchDocument, Packer } from 'docx';
-import * as fs from "fs";
 
-const document = await new Document({
-    sections: [{
-        children: [
-            new Paragraph({
-                children: [new TextRun("Lorem Ipsum Foo Bar"), new TextRun("Hello World")],
-            }),
-        ],
-    }],
-});
+import { Document } from 'docxyz';
+import cleanChart from './utils/cleanChart.js';
+import convertChart from './utils/convertChart.js';
+import createNewScale from './utils/createNewScale.js';
+import saveResult from './utils/saveResult.js';
 
-// Packer.toBuffer(document).then((buffer) => {
-//     fs.writeFileSync("My Document.docx", buffer);
-// });
+const scaleDict = {
+    numerical_scale: "1 2b 2 3b 3 4 5b 5 6b 6 7b 7".split(' '),
+    numerical_scale_2: "1 1# 2 2# 3 4 4# 5 5# 6 6# 7".split(' '),
+    scale: "A Bb B C Db D Eb E F Gb G Ab".split(' '),
+    scale_2: "A A# B C C# D D# E F F# G G#".split(' ')
+};
+const fileName = './pagab.docx'
+
+let document = new Document(fileName);
+
+let newScale = createNewScale('flat', scaleDict, 'A') 
+let cleanedDocument = cleanChart(document, scaleDict)
+let convertedDocument = convertChart(cleanedDocument, scaleDict, newScale)
+saveResult(convertedDocument, 'testingz.docx')
+

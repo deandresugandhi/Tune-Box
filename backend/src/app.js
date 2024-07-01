@@ -1,14 +1,17 @@
 import express from 'express';
 import cors from 'cors';
 import multer from 'multer';
-import docx from 'docx';
-import { cleanChart } from './utils'
+import { Document } from 'docxyz';
+import cleanChart from './utils/cleanChart.js';
+import convertChart from './utils/convertChart.js';
+import createNewScale from './utils/createNewScale.js';
+import saveResult from './utils/saveResult.js';
+import fs from 'fs'
 
 const app = express();
 const upload = multer(
     { 
-      storage: multer.memoryStorage(), 
-      limits: { fileSize: 5242880 }  //5mb limit
+      dest: './uploads'
     }
 );
 const scaleDict = {
@@ -22,25 +25,45 @@ app.use(cors());
 
 app.use(express.json());
 
-app.get
+app.get('/api', (req, res) =>
+    res.send({ info: 'Chord Translator API' }))
 
-
-
-app.post('/api/upload', upload.single('document'), async (req, res) => {
+app.post('/api/upload', upload.single('document'), (req, res) => {
     if (req.file) {
         try {
-            const buffer = req.file.buffer;
-            const document = new docx.Document();
-            const packer = new docx.Packer();
-            const unpackedDocument = await packer.unpack(buffer);
-            document.setBody(unpackedDocument.getBody());
+            const filePath = req.file.path;
+            const fileName = req.file.originalname;
+            const baseName = fileName.replace(/\.[^/.]+$/, '')
+            const downloadPath = `./downloads/${baseName}-converted.docx`
+            const document = new Document(filePath);
+            let newScale = createNewScale('flat', scaleDict, 'A') 
+            let cleanedDocument = cleanChart(document, scaleDict)
+            let convertedDocument = convertChart(cleanedDocument, scaleDict, newScale)
+            saveResult(convertedDocument, downloadPath)
+            res.download(downloadPath, function (err) {
+                if (err) {
+                  console.error(err);
+                } else {
+                  // Delete uploaded file
+                  fs.unlink(filePath, (err) => {
+                    if (err) {
+                      console.error(err);
+                    } else {
+                      console.log('Upload directory deleted successfully');
+                    }
+                  });
+              
+                  // Delete downloaded file (overwrite with empty content)
+                  fs.unlink(downloadPath, (err) => {
+                    if (err) {
+                      console.error(err);
+                    } else {
+                      console.log('Download directory deleted successfully');
+                    }
+                  });
+                }
+              });
 
-            // Manipulation logic
-
-            const modifiedDocument = await packer.pack(document);
-            const downloadUrl = '/download'
-            res.json({ downloadUrl });
-        
         } catch (error) {
             console.error(error);
             res.status(500).send('Error processing document');
@@ -50,4 +73,8 @@ app.post('/api/upload', upload.single('document'), async (req, res) => {
     }
 });
 
-document.body.each
+//Start the server
+const PORT = process.env.PORT || 4000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});
