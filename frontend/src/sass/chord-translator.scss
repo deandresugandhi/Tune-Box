@@ -1,0 +1,54 @@
+@charset "utf-8";
+
+// Color Scheme
+$cyan-dark: #0b2c29;
+$cyan-dark-2: #258b83;
+$cyan: #3db3ad;
+$cyan-light: #c1e1e2;
+$cyan-lighter: #eff5f5;
+$green-success: #18882a;
+$red-danger: #99100b;
+$yellow-warning: #d6a606;
+
+// Set your brand colors
+$family-primary: '"ofelia-display", sans-serif';
+$size-1: 5rem;
+$primary: $cyan-dark;
+$info: $cyan;
+$dark: $cyan-dark-2;
+
+$navbar-padding-vertical: 0px;
+$navbar-item-border-radius: 10px;
+
+// Path to Bulma's sass folder
+@import "bulma/sass";
+
+// Import the Google Font
+@import url("https://use.typekit.net/mbk0rar.css");
+
+// Custom hero styles to override default Bulma
+.hero-custom .navbar-item.is-active{
+  color: $cyan-dark-2;
+  background-color: transparent;
+}
+
+.hero-custom .hero-foot li.is-active a {
+  color: $cyan-dark-2;
+}
+
+.navbar-item img {
+  margin-bottom: 5px;
+  margin-right: 8px;
+}
+
+.navbar, .navbar .container {
+  min-height: auto;
+  height: 50px;
+}
+
+
+.piano-container div {
+  display: flex;
+  justify-content: center;
+}
+
