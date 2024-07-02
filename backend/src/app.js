@@ -28,15 +28,18 @@ app.use(express.json());
 app.get('/api', (req, res) =>
     res.send({ info: 'Chord Translator API' }))
 
-app.post('/api/upload', upload.single('document'), (req, res) => {
+app.post('/api/convert/:accidental/:assignedKey/', upload.single('document'), (req, res) => {
     if (req.file) {
         try {
+            const accidental = req.params.accidental;
+            const assignedKey = req.params.assignedKey;
+
             const filePath = req.file.path;
             const fileName = req.file.originalname;
             const baseName = fileName.replace(/\.[^/.]+$/, '')
             const downloadPath = `./downloads/${baseName}-converted.docx`
             const document = new Document(filePath);
-            let newScale = createNewScale('flat', scaleDict, 'A') 
+            let newScale = createNewScale(accidental, scaleDict, assignedKey) 
             let cleanedDocument = cleanChart(document, scaleDict)
             let convertedDocument = convertChart(cleanedDocument, scaleDict, newScale)
             saveResult(convertedDocument, downloadPath)
@@ -53,7 +56,7 @@ app.post('/api/upload', upload.single('document'), (req, res) => {
                     }
                   });
               
-                  // Delete downloaded file (overwrite with empty content)
+                  // Delete downloaded file
                   fs.unlink(downloadPath, (err) => {
                     if (err) {
                       console.error(err);
