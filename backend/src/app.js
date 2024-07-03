@@ -37,7 +37,7 @@ app.post('/api/convert/:accidental/:assignedKey/', upload.single('file'), (req, 
             const filePath = req.file.path;
             const fileName = req.file.originalname;
             const baseName = fileName.replace(/\.[^/.]+$/, '')
-            const downloadPath = `src/downloads/${baseName}-converted.docx`
+            const downloadPath = `./src/downloads/${baseName}-converted.docx`
             const document = new Document(filePath);
             let newScale = createNewScale(accidental, scaleDict, assignedKey) 
             let cleanedDocument = cleanChart(document, scaleDict)
