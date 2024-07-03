@@ -4,6 +4,7 @@ import NotationToNumber from './NotationToNumber';
 import NavBar from './NavBar';
 import axios from 'axios';
 import NavFooter from './NavFooter';
+import loadingURL from '../assets/loading.gif';
 
 const ChordTranslator = () => {
   // Truthy value of translateMode represents Number-To-Notation mode, falsy represents Notation-To-Number mode 
@@ -51,7 +52,7 @@ const ChordTranslator = () => {
             </div>
             {loading ? (
               <>
-                <img src="src/assets/loading.gif" alt="Loading" />
+                <img src={loadingURL} alt="Loading" />
                 <p className="is-size-4 has-text-weight-light mb-6">LOADING</p>
                 <p className="is-size-5 has-text-weight-medium mt-6 has-text-centered">Waiting for API to respond, this can take up to 1 minute.</p>
               </>
