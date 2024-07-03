@@ -1,12 +1,14 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import NumberToNotation from './NumberToNotation'
+import ChordTranslator from './ChordTranslator'
+import Home from './Home'
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
         <Routes>
-          <Route path="/number-notation" element={<NumberToNotation />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/tools/chord-translator" element={<ChordTranslator />} />
           <Route path="*" element={<h3>Page Not Found</h3>} />
         </Routes>
       </BrowserRouter>

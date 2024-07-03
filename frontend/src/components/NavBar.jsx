@@ -1,30 +1,35 @@
-import React from 'react';
+import React, {useState} from 'react';
 import logoURL from '../assets/logo.png';
+import NavLinkContainer from './NavLinkContainer';
 
 
 const NavBar = () => {
+    const [isActive, setIsActive] = useState(false);
+
+    const toggleMenu = () => {
+        setIsActive(!isActive);
+    };
+
     return (
         <div class="hero-head">
-            <nav class="navbar mt-5">
-                <div class="container">
-                    <div class="navbar-brand pt-4 pb-4">
+            <nav class="navbar is-fixed-top has-background-black-bis">
+                <div class="navbar-brand">
                     <a class="navbar-item">
                         <img src={logoURL} alt="Logo" />
-                        <p class="is-size-3">TuneBox</p>
+                        <p class="is-size-4 is-size-5-mobile">TuneBox</p>
                     </a>
-                    <span class="navbar-burger" data-target="navbarMenuHeroA">
+                    <div className={`navbar-burger ${isActive ? 'is-active' : ''}`} onClick={toggleMenu}>
                         <span></span>
                         <span></span>
                         <span></span>
                         <span></span>
-                    </span>
                     </div>
-                    <div id="navbarMenuHeroA" class="navbar-menu">
+                </div>
+                <div id="navbarMenuHeroA" className={`navbar-menu ${isActive ? 'is-active has-background-grey-darker' : ''}`}>
                     <div class="navbar-end">
-                        <a class="navbar-item is-active"> Home </a>
-                        <a class="navbar-item is-rounded"> Examples </a>
-                        <a class="navbar-item is-rounded"> Documentation </a>
-                    </div>
+                        <NavLinkContainer text="Home" path="/" className="navbar-item has-text-centered"/>
+                        <NavLinkContainer text="Tools" path="/tools/chord-translator" className="navbar-item has-text-centered" activePath="/tools"/>
+                        <NavLinkContainer text="About" path="/about" className="navbar-item has-text-centered"/>
                     </div>
                 </div>
             </nav>

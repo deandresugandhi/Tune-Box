@@ -4,7 +4,7 @@ import Upload from './Upload';
 import axios from 'axios';
 
 
-const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccidental, assignedKey, setAssignedKey }) => {
+const NotationToNumber = ({ wordDocument, setWordDocument, accidental, setAccidental, assignedKey, setAssignedKey }) => {
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -50,7 +50,7 @@ const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccide
     return (
       
               <form onSubmit={handleSubmit}>
-                  <KeyInput labelText="Translate to Key:" assignedKey={assignedKey} setAssignedKey={setAssignedKey}/>
+                  <KeyInput labelText="Translate from Key:" assignedKey={assignedKey} setAssignedKey={setAssignedKey}/>
                   <label class="control"><p className="is-size-5 is-size-6-mobile">Write accidentals in:</p></label>
                   <div class="field is-grouped is-grouped-centered mb-5">
                       <div class="control">
@@ -70,4 +70,4 @@ const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccide
 };
 
   
-  export default NumberToNotation
+  export default NotationToNumber

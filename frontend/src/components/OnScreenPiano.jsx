@@ -27,7 +27,7 @@ const OnScreenPiano = ({ setAssignedKey }) => {
     }
 
     return (
-        <div class="piano-container mt-5 mb-5">
+        <div class="piano-container custom-margin-1 mb-5">
             <Piano
                 noteRange={{ first: firstNote, last: lastNote }}
                 playNote={(midiNumber) => {

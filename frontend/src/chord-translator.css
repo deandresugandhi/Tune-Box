@@ -1,6 +1,7 @@
 @charset "UTF-8";
 /* Bulma Utilities */
 @import url("https://use.typekit.net/mbk0rar.css");
+@import 'bulma-social/css/all.min.css';
 :root {
   --bulma-control-radius: var(--bulma-radius);
   --bulma-control-radius-small: var(--bulma-radius-small);
@@ -873,8 +874,8 @@
   --bulma-shadow-s: 14%;
   --bulma-shadow-l: 4%;
   --bulma-size-1: 5rem;
-  --bulma-size-2: 2.5rem;
-  --bulma-size-3: 2rem;
+  --bulma-size-2: 3.1rem;
+  --bulma-size-3: 4rem;
   --bulma-size-4: 1.5rem;
   --bulma-size-5: 1.25rem;
   --bulma-size-6: 1rem;
@@ -1774,8 +1775,8 @@
     --bulma-shadow-s: 14%;
     --bulma-shadow-l: 4%;
     --bulma-size-1: 5rem;
-    --bulma-size-2: 2.5rem;
-    --bulma-size-3: 2rem;
+    --bulma-size-2: 3.1rem;
+    --bulma-size-3: 4rem;
     --bulma-size-4: 1.5rem;
     --bulma-size-5: 1.25rem;
     --bulma-size-6: 1rem;
@@ -2692,8 +2693,8 @@
   --bulma-shadow-s: 14%;
   --bulma-shadow-l: 4%;
   --bulma-size-1: 5rem;
-  --bulma-size-2: 2.5rem;
-  --bulma-size-3: 2rem;
+  --bulma-size-2: 3.1rem;
+  --bulma-size-3: 4rem;
   --bulma-size-4: 1.5rem;
   --bulma-size-5: 1.25rem;
   --bulma-size-6: 1rem;
@@ -5669,11 +5670,11 @@ button.tag:active,
 }
 
 .title.is-2 {
-  font-size: 2.5rem;
+  font-size: 3.1rem;
 }
 
 .title.is-3 {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 .title.is-4 {
@@ -5713,11 +5714,11 @@ button.tag:active,
 }
 
 .subtitle.is-2 {
-  font-size: 2.5rem;
+  font-size: 3.1rem;
 }
 
 .subtitle.is-3 {
-  font-size: 2rem;
+  font-size: 4rem;
 }
 
 .subtitle.is-4 {
@@ -8845,8 +8846,8 @@ label.panel-block:hover {
   --bulma-tabs-toggle-link-hover-background-color: var(--bulma-background);
   --bulma-tabs-toggle-link-hover-border-color: var(--bulma-border-hover);
   --bulma-tabs-toggle-link-radius: var(--bulma-radius);
-  --bulma-tabs-toggle-link-active-background-color: var(--bulma-link);
-  --bulma-tabs-toggle-link-active-border-color: var(--bulma-link);
+  --bulma-tabs-toggle-link-active-background-color: #0b2c29;
+  --bulma-tabs-toggle-link-active-border-color: #0b2c29;
   --bulma-tabs-toggle-link-active-color: var(--bulma-link-invert);
 }
 
@@ -22405,11 +22406,11 @@ has-background-danger.is-hoverable:active {
 }
 
 .is-size-2 {
-  font-size: 2.5rem !important;
+  font-size: 3.1rem !important;
 }
 
 .is-size-3 {
-  font-size: 2rem !important;
+  font-size: 4rem !important;
 }
 
 .is-size-4 {
@@ -22433,10 +22434,10 @@ has-background-danger.is-hoverable:active {
     font-size: 5rem !important;
   }
   .is-size-2-mobile {
-    font-size: 2.5rem !important;
+    font-size: 3.1rem !important;
   }
   .is-size-3-mobile {
-    font-size: 2rem !important;
+    font-size: 4rem !important;
   }
   .is-size-4-mobile {
     font-size: 1.5rem !important;
@@ -22456,10 +22457,10 @@ has-background-danger.is-hoverable:active {
     font-size: 5rem !important;
   }
   .is-size-2-tablet {
-    font-size: 2.5rem !important;
+    font-size: 3.1rem !important;
   }
   .is-size-3-tablet {
-    font-size: 2rem !important;
+    font-size: 4rem !important;
   }
   .is-size-4-tablet {
     font-size: 1.5rem !important;
@@ -22479,10 +22480,10 @@ has-background-danger.is-hoverable:active {
     font-size: 5rem !important;
   }
   .is-size-2-touch {
-    font-size: 2.5rem !important;
+    font-size: 3.1rem !important;
   }
   .is-size-3-touch {
-    font-size: 2rem !important;
+    font-size: 4rem !important;
   }
   .is-size-4-touch {
     font-size: 1.5rem !important;
@@ -22502,10 +22503,10 @@ has-background-danger.is-hoverable:active {
     font-size: 5rem !important;
   }
   .is-size-2-desktop {
-    font-size: 2.5rem !important;
+    font-size: 3.1rem !important;
   }
   .is-size-3-desktop {
-    font-size: 2rem !important;
+    font-size: 4rem !important;
   }
   .is-size-4-desktop {
     font-size: 1.5rem !important;
@@ -22525,10 +22526,10 @@ has-background-danger.is-hoverable:active {
     font-size: 5rem !important;
   }
   .is-size-2-widescreen {
-    font-size: 2.5rem !important;
+    font-size: 3.1rem !important;
   }
   .is-size-3-widescreen {
-    font-size: 2rem !important;
+    font-size: 4rem !important;
   }
   .is-size-4-widescreen {
     font-size: 1.5rem !important;
@@ -22548,10 +22549,10 @@ has-background-danger.is-hoverable:active {
     font-size: 5rem !important;
   }
   .is-size-2-fullhd {
-    font-size: 2.5rem !important;
+    font-size: 3.1rem !important;
   }
   .is-size-3-fullhd {
-    font-size: 2rem !important;
+    font-size: 4rem !important;
   }
   .is-size-4-fullhd {
     font-size: 1.5rem !important;
@@ -23323,7 +23324,7 @@ has-background-danger.is-hoverable:active {
   background-color: transparent;
 }
 
-.hero-custom .hero-foot li.is-active a {
+.tabs .tab-item.is-active {
   color: #258b83;
 }
 
@@ -23334,12 +23335,59 @@ has-background-danger.is-hoverable:active {
 
 .navbar, .navbar .container {
   min-height: auto;
-  height: 50px;
+  height: 70px;
+}
+
+.navbar {
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+}
+
+.navbar-brand {
+  height: 100%;
+}
+
+.navbar-burger {
+  color: rgb(192, 192, 192) !important;
 }
 
 .piano-container div {
   display: flex;
   justify-content: center;
+}
+
+.custom-margin-1 {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.custom-paragraph {
+  line-height: 1.5;
+  letter-spacing: 0.2px;
+}
+
+.pink {
+  color: #d33393;
+}
+
+.orange {
+  color: #e87825;
+}
+
+.blue {
+  color: #00668c;
+}
+
+.green {
+  color: #185a54;
+}
+
+.title span {
+  font-weight: 1000;
+}
+
+.shadowed {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 /*# sourceMappingURL=chord-translator.css.map */

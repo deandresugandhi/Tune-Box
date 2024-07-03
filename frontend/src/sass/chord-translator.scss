@@ -13,6 +13,8 @@ $yellow-warning: #d6a606;
 // Set your brand colors
 $family-primary: '"ofelia-display", sans-serif';
 $size-1: 5rem;
+$size-2: 3.1rem;
+$size-3: 4rem;
 $primary: $cyan-dark;
 $info: $cyan;
 $dark: $cyan-dark-2;
@@ -20,19 +22,23 @@ $dark: $cyan-dark-2;
 $navbar-padding-vertical: 0px;
 $navbar-item-border-radius: 10px;
 
+$tabs-toggle-link-active-background-color: $cyan-dark;
+$tabs-toggle-link-active-border-color: $cyan-dark;
+
 // Path to Bulma's sass folder
 @import "bulma/sass";
 
 // Import the Google Font
 @import url("https://use.typekit.net/mbk0rar.css");
 
-// Custom hero styles to override default Bulma
+@import 'bulma-social/css/all.min.css';
+
 .hero-custom .navbar-item.is-active{
   color: $cyan-dark-2;
   background-color: transparent;
 }
 
-.hero-custom .hero-foot li.is-active a {
+.tabs .tab-item.is-active {
   color: $cyan-dark-2;
 }
 
@@ -43,12 +49,57 @@ $navbar-item-border-radius: 10px;
 
 .navbar, .navbar .container {
   min-height: auto;
-  height: 50px;
+  height: 70px;
 }
 
+.navbar {
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+}
+
+.navbar-brand {
+  height: 100%;
+}
+
+.navbar-burger {
+  color: rgb(192, 192, 192) !important;
+}
 
 .piano-container div {
   display: flex;
   justify-content: center;
 }
 
+.custom-margin-1 {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
+.custom-paragraph {
+  line-height: 1.5;
+  letter-spacing: .2px;
+}
+
+.pink {
+  color: #d33393;
+}
+
+.orange {
+  color: #e87825;
+}
+
+.blue {
+  color: #00668c
+}
+
+.green {
+  color: #185a54
+}
+
+.title span {
+  font-weight: 1000;
+}
+
+.shadowed {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}

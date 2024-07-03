@@ -1,20 +1,18 @@
 import React from 'react';
+import NavLinkContainer from './NavLinkContainer';
 
 
 const NavFooter = () => {
     return (
         <div class="hero-foot">
-            <nav class="tabs">
-            <div class="container">
+            <nav class="tabs is-fullwidth">
                 <ul>
-                <li class="is-active"><a>Number to Notation</a></li>
-                <li><a>Notation to Number</a></li>
-                <li><a>Transposer</a></li>
-                <li><a>Elements</a></li>
-                <li><a>Components</a></li>
-                <li><a>Layout</a></li>
+                    <li><NavLinkContainer text="Chord Translator" path="/tools/chord-translator" className="tab-item"/></li>
+                    <li><NavLinkContainer text="Chord Transposer" path="/tools/chord-transposer" className="tab-item"/></li>
+                    <li><NavLinkContainer text="Instant Translate" path="/tools/instant-translate" className="tab-item"/></li>
+                    <li><NavLinkContainer text="Instant Transpose" path="/tools/instant-transpose" className="tab-item"/></li>
+                    <li><NavLinkContainer text="Chromatic Tuner" path="/tools/chromatic-tuner" className="tab-item"/></li>
                 </ul>
-            </div>
             </nav>
         </div>
     )
