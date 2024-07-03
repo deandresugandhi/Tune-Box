@@ -17,7 +17,7 @@ const ChordTranslator = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:4000/api');
+        const response = await axios.get('https://tune-box.onrender.com/api');
         setFetchedData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
