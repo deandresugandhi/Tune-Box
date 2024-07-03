@@ -12,7 +12,9 @@
     "start": "npm run build-bulma -- --watch"
   },
   "dependencies": {
+    "axios": "^1.7.2",
     "bulma": "^1.0.1",
+    "bulma-social": "^2.1.0",
     "docx": "^8.5.0",
     "jsdocx": "^0.4.5",
     "react": "^18.3.1",

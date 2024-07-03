@@ -28,7 +28,7 @@ app.use(express.json());
 app.get('/api', (req, res) =>
     res.send({ info: 'Chord Translator API' }))
 
-app.post('/api/convert/:accidental/:assignedKey/', upload.single('document'), (req, res) => {
+app.post('/api/convert/:accidental/:assignedKey/', upload.single('file'), (req, res) => {
     if (req.file) {
         try {
             const accidental = req.params.accidental;
