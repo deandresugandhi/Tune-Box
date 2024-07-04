@@ -11,7 +11,7 @@ import fs from 'fs'
 const app = express();
 const upload = multer(
     { 
-      dest: 'uploads'
+      dest: 'src/uploads'
     }
 );
 const scaleDict = {
@@ -37,7 +37,7 @@ app.post('/api/convert/:accidental/:assignedKey/', upload.single('file'), (req, 
             const filePath = req.file.path;
             const fileName = req.file.originalname;
             const baseName = fileName.replace(/\.[^/.]+$/, '')
-            const downloadPath = `./downloads/${baseName}-converted.docx`
+            const downloadPath = `./src/downloads/${baseName}-converted.docx`
             const document = new Document(filePath);
             let newScale = createNewScale(accidental, scaleDict, assignedKey) 
             let cleanedDocument = cleanChart(document, scaleDict)
@@ -52,7 +52,7 @@ app.post('/api/convert/:accidental/:assignedKey/', upload.single('file'), (req, 
                     if (err) {
                       console.error(err);
                     } else {
-                      console.log('Upload directory deleted successfully');
+                      console.log('Upload directory cleaned successfully');
                     }
                   });
               
@@ -61,7 +61,7 @@ app.post('/api/convert/:accidental/:assignedKey/', upload.single('file'), (req, 
                     if (err) {
                       console.error(err);
                     } else {
-                      console.log('Download directory deleted successfully');
+                      console.log('Download directory cleaned successfully');
                     }
                   });
                 }
