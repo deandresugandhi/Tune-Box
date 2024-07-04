@@ -23338,7 +23338,7 @@ has-background-danger.is-hoverable:active {
   height: 70px;
 }
 
-.navbar {
+.navbar-brand {
   padding-left: 1.5vw;
   padding-right: 1.5vw;
 }
