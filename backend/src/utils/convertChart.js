@@ -1,4 +1,4 @@
-import { isInsideParentheses } from "./utilityFunction";
+import { isInsideParentheses } from "./utilityFunction.js";
 
 const convertChart = (document, scaleDict, newScale, isNumerical) => {
   // For numerical param, set 'true' for chart containing Nashville number chord.
