@@ -8,6 +8,7 @@ import createNewScale from './utils/createNewScale.js';
 import saveResult from './utils/saveResult.js';
 import fs from 'fs'
 import { v4 as uuidv4 } from "uuid";
+import { runInContext } from 'vm';
 
 const app = express();
 const upload = multer(
