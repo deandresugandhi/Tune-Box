@@ -9,7 +9,7 @@ import loadingURL from '../assets/loading.gif';
 const ChordTranslator = () => {
   // Truthy value of translateMode represents Number-To-Notation mode, falsy represents Notation-To-Number mode 
   const [translateMode, setTranslateMode] = useState(true);
-  const [accidental, setAccidental] = useState('');
+  const [accidental, setAccidental] = useState('flat');
   const [assignedKey, setAssignedKey] = useState('C');
   const [wordDocument, setWordDocument] = useState(null);
   const [loading, setLoading] = useState(true);

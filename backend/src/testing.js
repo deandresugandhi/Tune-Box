@@ -11,12 +11,8 @@ const scaleDict = {
     scale: "A Bb B C Db D Eb E F Gb G Ab".split(' '),
     scale_2: "A A# B C C# D D# E F F# G G#".split(' ')
 };
-const fileName = './pagab.docx'
 
-let document = new Document(fileName);
+const test = createNewScale('flat', scaleDict, "Bb")
 
-let newScale = createNewScale('flat', scaleDict, 'A') 
-let cleanedDocument = cleanChart(document, scaleDict)
-let convertedDocument = convertChart(cleanedDocument, scaleDict, newScale)
-saveResult(convertedDocument, 'testingz.docx')
+console.log(test)
 

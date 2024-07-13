@@ -7,6 +7,7 @@ import convertChart from './utils/convertChart.js';
 import createNewScale from './utils/createNewScale.js';
 import saveResult from './utils/saveResult.js';
 import fs from 'fs'
+import { v4 as uuidv4 } from "uuid";
 
 const app = express();
 const upload = multer(
@@ -28,45 +29,45 @@ app.use(express.json());
 app.get('/api', (req, res) =>
     res.send({ info: 'Chord Translator API' }))
 
-app.post('/api/convert/:accidental/:assignedKey/', upload.single('file'), (req, res) => {
+app.post('/api/chord-translator/convert/:type/accidental/:assignedKey/', upload.single('file'), (req, res) => {
     if (req.file) {
         try {
-            const accidental = req.params.accidental;
-            const assignedKey = req.params.assignedKey;
+            // Create unique directory name inside downloads directory for each request to prevent filename collisions.
+            // Filename collisions for the uploads directory is handled automatically by Multer
+            const requestId = uuidv4();
+            const downloadDir = path.join('src', 'downloads', requestId);
+            fs.mkdirSync(downloadDir, { recursive: true });
+            
+            const { type, accidental, assignedKey } = req.params;
 
             const filePath = req.file.path;
             const fileName = req.file.originalname;
             const baseName = fileName.replace(/\.[^/.]+$/, '')
-            const downloadPath = `./src/downloads/${baseName}-converted.docx`
+            const downloadPath = path.join(downloadDir, `${baseName}-converted.docx`);
+            
             const document = new Document(filePath);
+            let isNumerical = type === 'number';
             let newScale = createNewScale(accidental, scaleDict, assignedKey) 
-            let cleanedDocument = cleanChart(document, scaleDict)
-            let convertedDocument = convertChart(cleanedDocument, scaleDict, newScale)
+            let cleanedDocument = cleanChart(document, scaleDict, isNumerical)
+            let convertedDocument = convertChart(cleanedDocument, scaleDict, newScale, isNumerical)
             saveResult(convertedDocument, downloadPath)
+            
             res.download(downloadPath, function (err) {
                 if (err) {
-                  console.error(err);
+                    console.error(err);
                 } else {
-                  // Delete uploaded file
-                  fs.unlink(filePath, (err) => {
-                    if (err) {
-                      console.error(err);
-                    } else {
-                      console.log('Upload directory cleaned successfully');
-                    }
-                  });
-              
-                  // Delete downloaded file
-                  fs.unlink(downloadPath, (err) => {
-                    if (err) {
-                      console.error(err);
-                    } else {
-                      console.log('Download directory cleaned successfully');
-                    }
-                  });
+                    // Delete uploaded file
+                    fs.unlink(filePath, (err) => {
+                        if (err) {
+                            console.error(err);
+                        } else {
+                            console.log('Upload directory cleaned successfully');
+                        }
+                    });
+                    // Delete downloaded file + unique directory
+                    fs.rmSync(downloadDir, { recursive: true, force: true });
                 }
-              });
-
+            });
         } catch (error) {
             console.error(error);
             res.status(500).send('Error processing document');

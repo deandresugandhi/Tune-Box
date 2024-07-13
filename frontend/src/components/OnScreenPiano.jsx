@@ -3,7 +3,7 @@ import { Piano, KeyboardShortcuts, MidiNumbers } from 'react-piano'
 import 'react-piano/dist/styles.css';
 
 
-const OnScreenPiano = ({ setAssignedKey }) => {
+const OnScreenPiano = ({ setAssignedKey, accidental }) => {
     const firstNote = MidiNumbers.fromNote('c3');
     const lastNote = MidiNumbers.fromNote('b3');
     const keyboardShortcuts = KeyboardShortcuts.create({
@@ -12,18 +12,18 @@ const OnScreenPiano = ({ setAssignedKey }) => {
         keyboardConfig: KeyboardShortcuts.HOME_ROW,
     });
     const keyDictionary = {
-        48:"C",
-        49:"Db",
-        50:"D",
-        51:"Eb",
-        52:"E",
-        53:"F",
-        54:"Gb",
-        55:"G",
-        56:"Ab",
-        57:"A",
-        58:"Bb",
-        59:"B",
+        48: "C",
+        49: "Db",
+        50: "D",
+        51: "Eb",
+        52: "E",
+        53: "F",
+        54: "Gb",
+        55: "G",
+        56: "Ab",
+        57: "A",
+        58: "Bb",
+        59: "B"
     }
 
     return (

@@ -1,15 +1,11 @@
-const cleanChart = (document, scaleDict) => {
-  const zipArraysToObject = (keys, values) => {
-    return keys.reduce((acc, key, index) => {
-      acc[key] = values[index];
-      return acc;
-    }, {});
-  };
-    
-  const universalDictionary = zipArraysToObject(
-    scaleDict.numerical_scale_2, 
-    scaleDict.numerical_scale
-  );
+import { zipArraysToObject } from "./utilityFunction.js";
+
+const cleanChart = (document, scaleDict, isNumerical) => {
+  // For numerical param, set 'true' for chart containing Nashville number chord.
+  // set 'false" for chart containing letter chord notation.
+  const universalDictionary = isNumerical === true 
+    ? zipArraysToObject(scaleDict.numerical_scale_2, scaleDict.numerical_scale)
+    : zipArraysToObject(scaleDict.scale_2, scaleDict.scale)
 
   const changeAllToFlat = (document) => {
     document.paragraphs.forEach(paragraph => {

@@ -28,7 +28,7 @@ const NotationToNumber = ({ wordDocument, setWordDocument, accidental, setAccide
     formData.append('file', wordDocument);
 
     try {
-        const response = await axios.post(`https://tune-box.onrender.com/api/convert/${accidental}/${assignedKey}`, formData, {
+        const response = await axios.post(`https://tune-box.onrender.com/api/chord-translator/convert/notation/${accidental}/${assignedKey}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
@@ -48,23 +48,22 @@ const NotationToNumber = ({ wordDocument, setWordDocument, accidental, setAccide
     };
 
     return (
-      
-              <form onSubmit={handleSubmit}>
-                  <KeyInput labelText="Translate from Key:" assignedKey={assignedKey} setAssignedKey={setAssignedKey}/>
-                  <label class="control"><p className="is-size-5 is-size-6-mobile">Write accidentals in:</p></label>
-                  <div class="field is-grouped is-grouped-centered mb-5">
-                      <div class="control">
-                          <button type="button" className={`button is-size-4 is-size-5-mobile has-text-weight-bold m-2 ${accidental === "flat" ? "is-dark has-text-black":"is-primary has-text-white"}`} onClick={() => {setAccidental("flat")}}>♭</button>
-                          <button type="button" className={`button is-size-4 is-size-5-mobile has-text-weight-bold m-2 ${accidental === "sharp" ? "is-dark has-text-black":"is-primary has-text-white"}`} onClick={() => {setAccidental("sharp")}}>♯</button>
-                      </div>
-                  </div>
-                  <Upload handler={handleFileChange} wordDocument={wordDocument} />
-                  <div class ="field">
-                      <div class="control">
-                          <button class="button is-dark has-text-black is-size-4 has-text-weight-bold m-2" type="submit">Convert & Download</button>
-                      </div>
-                  </div>
-              </form>
+      <form onSubmit={handleSubmit}>
+          <KeyInput labelText="Translate from Key:" assignedKey={assignedKey} setAssignedKey={setAssignedKey} accidental={accidental}/>
+          <label class="control"><p className="is-size-5 is-size-6-mobile">Write accidentals in:</p></label>
+          <div class="field is-grouped is-grouped-centered mb-5">
+              <div class="control">
+                  <button type="button" className={`button is-size-4 is-size-5-mobile has-text-weight-bold m-2 ${accidental === "flat" ? "is-dark has-text-black":"is-primary has-text-white"}`} onClick={() => {setAccidental("flat")}}>♭</button>
+                  <button type="button" className={`button is-size-4 is-size-5-mobile has-text-weight-bold m-2 ${accidental === "sharp" ? "is-dark has-text-black":"is-primary has-text-white"}`} onClick={() => {setAccidental("sharp")}}>♯</button>
+              </div>
+          </div>
+          <Upload handler={handleFileChange} wordDocument={wordDocument} />
+          <div class ="field">
+              <div class="control">
+                  <button class="button is-dark has-text-black is-size-4 has-text-weight-bold m-2" type="submit">Convert & Download</button>
+              </div>
+          </div>
+      </form>
 
     );
 };

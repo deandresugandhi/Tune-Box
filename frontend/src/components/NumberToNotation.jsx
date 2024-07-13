@@ -32,7 +32,7 @@ const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccide
 
     try {
       setDownloadLoading(true);
-      const response = await axios.post(`https://tune-box.onrender.com/api/convert/${accidental}/${assignedKey}`, formData, {
+      const response = await axios.post(`https://tune-box.onrender.com/api/chord-translator/convert/number/${accidental}/${assignedKey}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
         },
@@ -54,7 +54,7 @@ const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccide
 
     return (
       <form onSubmit={handleSubmit}>
-          <KeyInput labelText="Translate to Key:" assignedKey={assignedKey} setAssignedKey={setAssignedKey}/>
+          <KeyInput labelText="Translate to Key:" assignedKey={assignedKey} setAssignedKey={setAssignedKey} accidental={accidental}/>
           <label class="control"><p className="is-size-5 is-size-6-mobile">Write accidentals in:</p></label>
           <div class="field is-grouped is-grouped-centered mb-5">
               <div class="control">
