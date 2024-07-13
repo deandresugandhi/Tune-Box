@@ -20,10 +20,14 @@ const ChordTranslator = () => {
       try {
         const response = await axios.get('https://tune-box.onrender.com/api');
         setFetchedData(response.data);
+        setLoading(false);
       } catch (error) {
         console.error('Error fetching data:', error);
-      } finally {
-        setLoading(false);
+        // Retry logic
+        setTimeout(() => {
+          console.log('Retrying...');
+          fetchData(); // Retry fetching data
+        }, 10000); // Retry after 10 seconds (10000 milliseconds)
       }
     };
 
