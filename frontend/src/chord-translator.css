@@ -23324,6 +23324,14 @@ has-background-danger.is-hoverable:active {
   background-color: transparent;
 }
 
+.hero-body {
+  margin-top: 70px;
+}
+
+.no-margin {
+  margin: 0px;
+}
+
 .tabs .tab-item.is-active {
   color: #258b83;
 }
@@ -23392,6 +23400,14 @@ has-background-danger.is-hoverable:active {
 
 .custom-loading.is-loading::after {
   border-color: transparent transparent black black;
+}
+
+.image {
+  max-height: 600px;
+}
+
+.column {
+  max-width: 1000px;
 }
 
 /*# sourceMappingURL=chord-translator.css.map */

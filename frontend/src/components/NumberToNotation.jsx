@@ -53,29 +53,27 @@ const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccide
   };
 
     return (
-      
-              <form onSubmit={handleSubmit}>
-                  <KeyInput labelText="Translate to Key:" assignedKey={assignedKey} setAssignedKey={setAssignedKey}/>
-                  <label class="control"><p className="is-size-5 is-size-6-mobile">Write accidentals in:</p></label>
-                  <div class="field is-grouped is-grouped-centered mb-5">
-                      <div class="control">
-                          <button type="button" className={`button is-size-4 is-size-5-mobile has-text-weight-bold m-2 ${accidental === "flat" ? "is-dark has-text-black":"is-primary has-text-white"}`} onClick={() => {setAccidental("flat")}}>♭</button>
-                          <button type="button" className={`button is-size-4 is-size-5-mobile has-text-weight-bold m-2 ${accidental === "sharp" ? "is-dark has-text-black":"is-primary has-text-white"}`} onClick={() => {setAccidental("sharp")}}>♯</button>
-                      </div>
-                  </div>
-                  <Upload handler={handleFileChange} wordDocument={wordDocument} />
-                  <div class ="field">
-                      <div class="control">
-                          <button class={`button is-dark has-text-black is-size-4 has-text-weight-bold m-2 ${downloadLoading ? "is-loading custom-loading":""}`} type="submit">Convert & Download</button>
-                          {firstDownload ? (
-                            <p className={`${downloadLoading ? "has-text-warning":"has-text-success"}`}>{`${downloadLoading ? "Please wait for file to download...":"Download Success!"}`}</p>
-                          ) : (
-                            <></>
-                          )}
-                      </div>
-                  </div>
-              </form>
-
+      <form onSubmit={handleSubmit}>
+          <KeyInput labelText="Translate to Key:" assignedKey={assignedKey} setAssignedKey={setAssignedKey}/>
+          <label class="control"><p className="is-size-5 is-size-6-mobile">Write accidentals in:</p></label>
+          <div class="field is-grouped is-grouped-centered mb-5">
+              <div class="control">
+                  <button type="button" className={`button is-size-4 is-size-5-mobile has-text-weight-bold m-2 ${accidental === "flat" ? "is-dark has-text-black":"is-primary has-text-white"}`} onClick={() => {setAccidental("flat")}}>♭</button>
+                  <button type="button" className={`button is-size-4 is-size-5-mobile has-text-weight-bold m-2 ${accidental === "sharp" ? "is-dark has-text-black":"is-primary has-text-white"}`} onClick={() => {setAccidental("sharp")}}>♯</button>
+              </div>
+          </div>
+          <Upload handler={handleFileChange} wordDocument={wordDocument} />
+          <div class ="field">
+              <div class="control">
+                  <button class={`button is-dark has-text-black is-size-4 has-text-weight-bold m-2 ${downloadLoading ? "is-loading custom-loading":""}`} type="submit">Convert & Download</button>
+                  {firstDownload ? (
+                    <p className={`${downloadLoading ? "has-text-warning":"has-text-success"}`}>{`${downloadLoading ? "Please wait for file to download...":"Download Success!"}`}</p>
+                  ) : (
+                    <></>
+                  )}
+              </div>
+          </div>
+      </form>
     );
 };
 

@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import { useNavigate } from 'react-router-dom'
 import logoURL from '../assets/logo.png';
 import NavLinkContainer from './NavLinkContainer';
 
 
 const NavBar = () => {
     const [isActive, setIsActive] = useState(false);
+    const navigate = useNavigate()
 
     const toggleMenu = () => {
         setIsActive(!isActive);
@@ -14,7 +16,7 @@ const NavBar = () => {
         <div class="hero-head">
             <nav class="navbar is-fixed-top has-background-black-bis">
                 <div class="navbar-brand">
-                    <a class="navbar-item">
+                    <a class="navbar-item" onClick={() => navigate("/")}>
                         <img src={logoURL} alt="Logo" />
                         <p class="is-size-4 is-size-5-mobile">TuneBox</p>
                     </a>

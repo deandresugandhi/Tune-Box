@@ -38,6 +38,14 @@ $tabs-toggle-link-active-border-color: $cyan-dark;
   background-color: transparent;
 }
 
+.hero-body {
+  margin-top: 70px;
+}
+
+.no-margin {
+  margin: 0px
+}
+
 .tabs .tab-item.is-active {
   color: $cyan-dark-2;
 }
@@ -106,4 +114,12 @@ $tabs-toggle-link-active-border-color: $cyan-dark;
 
 .custom-loading.is-loading::after {
   border-color: transparent transparent black black;
+}
+
+.image {
+  max-height: 600px;
+}
+
+.column {
+  max-width: 1000px;
 }
