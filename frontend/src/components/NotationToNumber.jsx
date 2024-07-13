@@ -60,7 +60,12 @@ const NotationToNumber = ({ wordDocument, setWordDocument, accidental, setAccide
           <Upload handler={handleFileChange} wordDocument={wordDocument} />
           <div class ="field">
               <div class="control">
-                  <button class="button is-dark has-text-black is-size-4 has-text-weight-bold m-2" type="submit">Convert & Download</button>
+                <button class={`button is-dark has-text-black is-size-4 has-text-weight-bold m-2 ${downloadLoading ? "is-loading custom-loading":""}`} type="submit">Convert & Download</button>
+                    {firstDownload ? (
+                      <p className={`${downloadLoading ? "has-text-warning":"has-text-success"}`}>{`${downloadLoading ? "Please wait for file to download...":"Download Success!"}`}</p>
+                    ) : (
+                      <></>
+                    )}
               </div>
           </div>
       </form>
