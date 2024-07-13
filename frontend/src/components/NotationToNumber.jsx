@@ -5,6 +5,8 @@ import axios from 'axios';
 
 
 const NotationToNumber = ({ wordDocument, setWordDocument, accidental, setAccidental, assignedKey, setAssignedKey }) => {
+  const [downloadLoading, setDownloadLoading] = useState(false);
+  const [firstDownload, setFirstDownload] = useState(false);
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -24,20 +26,23 @@ const NotationToNumber = ({ wordDocument, setWordDocument, accidental, setAccide
         alert('Please select preferred accidental.')  
     }
 
+    setFirstDownload(true);
     const formData = new FormData();
     formData.append('file', wordDocument);
 
     try {
+        setDownloadLoading(true);
         const response = await axios.post(`https://tune-box.onrender.com/api/chord-translator/convert/notation/${accidental}/${assignedKey}`, formData, {
           headers: {
             'Content-Type': 'multipart/form-data',
           },
           responseType: 'blob'
         });
+        etDownloadLoading(false);
         const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = downloadUrl;
-        link.setAttribute('download', `${wordDocument.name.replace(/\.[^/.]+$/, '')}-converted-in-${assignedKey}.docx`);
+        link.setAttribute('download', `${wordDocument.name.replace(/\.[^/.]+$/, '')}-converted-in-${assignedKey}-to-number.docx`);
         document.body.appendChild(link);
         link.click();
         link.remove();
