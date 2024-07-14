@@ -38,7 +38,7 @@ const NotationToNumber = ({ wordDocument, setWordDocument, accidental, setAccide
           },
           responseType: 'blob'
         });
-        etDownloadLoading(false);
+        setDownloadLoading(false);
         const downloadUrl = window.URL.createObjectURL(new Blob([response.data]));
         const link = document.createElement('a');
         link.href = downloadUrl;
@@ -74,9 +74,8 @@ const NotationToNumber = ({ wordDocument, setWordDocument, accidental, setAccide
               </div>
           </div>
       </form>
-
     );
 };
 
   
-  export default NotationToNumber
+export default NotationToNumber

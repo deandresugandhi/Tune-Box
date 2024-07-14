@@ -78,4 +78,4 @@ const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccide
 };
 
   
-  export default NumberToNotation
+export default NumberToNotation

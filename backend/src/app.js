@@ -57,7 +57,7 @@ app.post('/api/chord-translator/convert/:type/:accidental/:assignedKey/', upload
             
             const document = new Document(filePath);
             let isNumerical = type === 'number';
-            let newScale = createNewScale(accidental, scaleDict, assignedKey) 
+            let newScale = createNewScale(accidental, scaleDict, assignedKey, isNumerical) 
             let cleanedDocument = cleanChart(document, scaleDict, isNumerical)
             let convertedDocument = convertChart(cleanedDocument, scaleDict, newScale, isNumerical)
             saveResult(convertedDocument, downloadPath)

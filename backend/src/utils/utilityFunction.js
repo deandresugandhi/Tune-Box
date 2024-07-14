@@ -13,3 +13,18 @@ export const isInsideParentheses = (str, index) => {
   }
   return openParenCount > 0;
 }
+
+
+
+export const transposeChord = (chord, offset, scale) => {
+  const length = scale.length;
+  const startIndex = scale.indexOf(chord);
+  if (startIndex === -1) {
+    throw new Error("Chord not found in scale");
+  }
+
+  // Calculate the new index with wrap-around
+  const newIndex = (startIndex + offset + length) % length;
+
+  return scale[newIndex];
+};
