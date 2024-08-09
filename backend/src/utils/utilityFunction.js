@@ -14,8 +14,6 @@ export const isInsideParentheses = (str, index) => {
   return openParenCount > 0;
 }
 
-
-
 export const transposeChord = (chord, offset, scale) => {
   const length = scale.length;
   const startIndex = scale.indexOf(chord);

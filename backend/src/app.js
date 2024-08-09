@@ -4,6 +4,7 @@ import multer from 'multer';
 import { Document } from 'docxyz';
 import cleanChart from './utils/cleanChart.js';
 import convertChart from './utils/convertChart.js';
+import transposeChart from './utils/transposeChart.js';
 import createNewScale from './utils/createNewScale.js';
 import saveResult from './utils/saveResult.js';
 import fs from 'fs'
@@ -32,19 +33,13 @@ app.get('/api', (req, res) => {
   res.send({ info: 'Chord Translator API' })
 })
 
-// app.post('/api/chord-translator/convert/:type/:accidental/:assignedKey/', upload.single('file'), (req, res) => {
-//   console.log('POSTING FUCK')
-//   res.send({ info: 'FUCK YOU' })
-// })
-
+// Chord Translator API
 app.post('/api/chord-translator/convert/:type/:accidental/:assignedKey/', upload.single('file'), (req, res) => {
-    console.log('YEA!')
     if (req.file) {
         try {
             // Create unique directory name inside downloads directory for each request to prevent filename collisions.
             // Filename collisions for the uploads directory is handled automatically by Multer
             const requestId = uuidv4();
-            console.log('Yea 2')
             const downloadDir = path.join('src', 'downloads', requestId);
             fs.mkdirSync(downloadDir, { recursive: true });
             
@@ -53,14 +48,67 @@ app.post('/api/chord-translator/convert/:type/:accidental/:assignedKey/', upload
             const filePath = req.file.path;
             const fileName = req.file.originalname;
             const baseName = fileName.replace(/\.[^/.]+$/, '')
-            const downloadPath = path.join(downloadDir, `${baseName}-converted.docx`);
+            const downloadPath = path.join(downloadDir, `${baseName}-translated.docx`);
             
             const document = new Document(filePath);
             let isNumerical = type === 'number';
-            let newScale = createNewScale(accidental, scaleDict, assignedKey, isNumerical) 
+            let newScale = createNewScale(accidental, scaleDict, assignedKey, isNumerical)
             let cleanedDocument = cleanChart(document, scaleDict, isNumerical)
             let convertedDocument = convertChart(cleanedDocument, scaleDict, newScale, isNumerical)
             saveResult(convertedDocument, downloadPath)
+            
+            res.download(downloadPath, function (err) {
+                if (err) {
+                    console.error(err);
+                } else {
+                    // Delete uploaded file
+                    fs.unlink(filePath, (err) => {
+                        if (err) {
+                            console.error(err);
+                        } else {
+                            console.log('Upload directory cleaned successfully');
+                        }
+                    });
+                    // Delete downloaded file + unique directory
+                    fs.rmSync(downloadDir, { recursive: true, force: true });
+                }
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send('Error processing document');
+        }
+    } else {
+        res.status(400).send('No file uploaded');
+    }
+});
+
+// Chord Transposer API
+app.post('/api/chord-transposer/convert/:accidental/:fromKey/:toKey', upload.single('file'), (req, res) => {
+    if (req.file) {
+        try {
+            // Create unique directory name inside downloads directory for each request to prevent filename collisions.
+            // Filename collisions for the uploads directory is handled automatically by Multer
+            const requestId = uuidv4();
+            const downloadDir = path.join('src', 'downloads', requestId);
+            fs.mkdirSync(downloadDir, { recursive: true });
+            
+            const { accidental, fromKey, toKey } = req.params;
+
+            const filePath = req.file.path;
+            const fileName = req.file.originalname;
+            const baseName = fileName.replace(/\.[^/.]+$/, '')
+            const downloadPath = path.join(downloadDir, `${baseName}-transposed.docx`);
+
+            let isNumerical = false;
+            let reverseNumerical = true;
+            
+            const document = new Document(filePath);
+            let fromScale = createNewScale(accidental, scaleDict, fromKey, isNumerical)
+            let toScale = createNewScale(accidental, scaleDict, toKey, reverseNumerical) 
+            let cleanedDocument = cleanChart(document, scaleDict, isNumerical)
+            let convertedDocument = convertChart(cleanedDocument, scaleDict, fromScale, isNumerical)
+            let transposedDocument = transposeChart(convertedDocument, scaleDict, toScale)
+            saveResult(transposedDocument, downloadPath)
             
             res.download(downloadPath, function (err) {
                 if (err) {

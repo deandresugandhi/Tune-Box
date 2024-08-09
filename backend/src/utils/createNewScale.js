@@ -1,8 +1,6 @@
 import { zipArraysToObject, transposeChord } from "./utilityFunction.js";
 
 const createNewScale = (accidental, scaleDict, assignedKey, isNumerical) => {
-    
-    
     const conversionDictionary = zipArraysToObject(scaleDict.scale, scaleDict.scale_2)
     
     const chosenScaleNumerical = accidental === 'flat' 
@@ -13,7 +11,6 @@ const createNewScale = (accidental, scaleDict, assignedKey, isNumerical) => {
     const assignedKeyConverted = accidental === 'flat' 
         ? assignedKey
         : conversionDictionary[assignedKey]
-
     
     if (isNumerical === true) {
         const posScale = chosenScaleNumerical.indexOf(assignedKeyConverted);

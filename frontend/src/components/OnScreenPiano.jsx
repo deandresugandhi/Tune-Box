@@ -3,7 +3,7 @@ import { Piano, KeyboardShortcuts, MidiNumbers } from 'react-piano'
 import 'react-piano/dist/styles.css';
 
 
-const OnScreenPiano = ({ setAssignedKey, accidental }) => {
+const OnScreenPiano = ({ setAssignedKey, setFromKey, setToKey, selectedHeader, accidental }) => {
     const firstNote = MidiNumbers.fromNote('c3');
     const lastNote = MidiNumbers.fromNote('b3');
     const keyboardShortcuts = KeyboardShortcuts.create({
@@ -31,7 +31,15 @@ const OnScreenPiano = ({ setAssignedKey, accidental }) => {
             <Piano
                 noteRange={{ first: firstNote, last: lastNote }}
                 playNote={(midiNumber) => {
-                    setAssignedKey(keyDictionary[midiNumber])
+                    if (setFromKey && setToKey) {
+                        if (selectedHeader === 1) {
+                            setFromKey(keyDictionary[midiNumber])
+                        } else if (selectedHeader === 2) {
+                            setToKey(keyDictionary[midiNumber])
+                        }
+                    } else if (setAssignedKey) (
+                        setAssignedKey(keyDictionary[midiNumber])
+                    )
                 }}
                 stopNote={(midiNumber) => {
                     // Stop playing a given note - see notes below

@@ -23332,8 +23332,17 @@ has-background-danger.is-hoverable:active {
   margin: 0px;
 }
 
-.tabs .tab-item.is-active {
+.tabs .tab-item.cyan-tab.is-active {
   color: #258b83;
+}
+
+.tabs .tab-item.pink-tab.is-active {
+  color: #af357e;
+}
+
+.pink-tab.is-toggle ul li.is-active a {
+  background-color: #3f102c !important;
+  border-color: #3f102c !important;
 }
 
 .navbar-item img {
@@ -23374,8 +23383,36 @@ has-background-danger.is-hoverable:active {
   letter-spacing: 0.2px;
 }
 
+.key-display-margin {
+  margin-bottom: -10px;
+}
+
 .pink {
   color: #d33393;
+}
+
+.pink-text {
+  color: #f02ba1;
+}
+
+.dark-pink-text {
+  color: #3f102c;
+}
+
+.dark-pink-background {
+  background-color: #3f102c;
+}
+
+.pink-background {
+  background-color: #af357e;
+}
+
+button.pink-background:hover {
+  background-color: rgb(206, 75, 153);
+}
+
+button.dark-pink-background:hover {
+  background-color: #521a3c;
 }
 
 .orange {

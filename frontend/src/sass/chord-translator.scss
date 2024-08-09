@@ -1,11 +1,21 @@
 @charset "utf-8";
 
 // Color Scheme
+// Cyan Scheme
+$cyan: #3db3ad;
 $cyan-dark: #0b2c29;
 $cyan-dark-2: #258b83;
-$cyan: #3db3ad;
 $cyan-light: #c1e1e2;
 $cyan-lighter: #eff5f5;
+
+//Pink Scheme
+$pinkish: #af357e;
+$pinkish-2: #f02ba1;
+$pinkish-dark: #3f102c;
+$pinkish-hover: rgb(206, 75, 153);
+$pinkish-dark-hover: #521a3c;
+
+// Special Scheme
 $green-success: #18882a;
 $red-danger: #99100b;
 $yellow-warning: #d6a606;
@@ -46,8 +56,18 @@ $tabs-toggle-link-active-border-color: $cyan-dark;
   margin: 0px
 }
 
-.tabs .tab-item.is-active {
+.tabs .tab-item.cyan-tab.is-active {
   color: $cyan-dark-2;
+}
+
+.tabs .tab-item.pink-tab.is-active {
+  color: $pinkish;
+}
+
+// Conditional styling when .pink class is present
+.pink-tab.is-toggle ul li.is-active a {
+  background-color: $pinkish-dark !important;
+  border-color: $pinkish-dark !important;
 }
 
 .navbar-item img {
@@ -88,9 +108,38 @@ $tabs-toggle-link-active-border-color: $cyan-dark;
   letter-spacing: .2px;
 }
 
+.key-display-margin {
+  margin-bottom: -10px;
+}
+
 .pink {
   color: #d33393;
 }
+
+.pink-text {
+  color: $pinkish-2;
+}
+
+.dark-pink-text {
+  color: $pinkish-dark;
+}
+
+.dark-pink-background {
+  background-color: $pinkish-dark
+}
+
+.pink-background {
+  background-color: $pinkish
+}
+
+button.pink-background:hover {
+  background-color: $pinkish-hover
+}
+
+button.dark-pink-background:hover {
+  background-color: $pinkish-dark-hover
+}
+
 
 .orange {
   color: #e87825;
