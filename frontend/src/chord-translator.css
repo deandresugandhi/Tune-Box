@@ -54,7 +54,7 @@
   --bulma-size-small: 0.75rem;
   --bulma-size-normal: 1rem;
   --bulma-size-medium: 1.25rem;
-  --bulma-size-large: 1.5rem;
+  --bulma-size-large: 1.8rem;
   --bulma-weight-light: 300;
   --bulma-weight-normal: 400;
   --bulma-weight-medium: 500;
@@ -876,7 +876,7 @@
   --bulma-size-1: 5rem;
   --bulma-size-2: 3.1rem;
   --bulma-size-3: 4rem;
-  --bulma-size-4: 1.5rem;
+  --bulma-size-4: 1.8rem;
   --bulma-size-5: 1.25rem;
   --bulma-size-6: 1rem;
   --bulma-size-7: 0.75rem;
@@ -955,7 +955,7 @@
     --bulma-size-small: 0.75rem;
     --bulma-size-normal: 1rem;
     --bulma-size-medium: 1.25rem;
-    --bulma-size-large: 1.5rem;
+    --bulma-size-large: 1.8rem;
     --bulma-weight-light: 300;
     --bulma-weight-normal: 400;
     --bulma-weight-medium: 500;
@@ -1777,7 +1777,7 @@
     --bulma-size-1: 5rem;
     --bulma-size-2: 3.1rem;
     --bulma-size-3: 4rem;
-    --bulma-size-4: 1.5rem;
+    --bulma-size-4: 1.8rem;
     --bulma-size-5: 1.25rem;
     --bulma-size-6: 1rem;
     --bulma-size-7: 0.75rem;
@@ -1873,7 +1873,7 @@
   --bulma-size-small: 0.75rem;
   --bulma-size-normal: 1rem;
   --bulma-size-medium: 1.25rem;
-  --bulma-size-large: 1.5rem;
+  --bulma-size-large: 1.8rem;
   --bulma-weight-light: 300;
   --bulma-weight-normal: 400;
   --bulma-weight-medium: 500;
@@ -2695,7 +2695,7 @@
   --bulma-size-1: 5rem;
   --bulma-size-2: 3.1rem;
   --bulma-size-3: 4rem;
-  --bulma-size-4: 1.5rem;
+  --bulma-size-4: 1.8rem;
   --bulma-size-5: 1.25rem;
   --bulma-size-6: 1rem;
   --bulma-size-7: 0.75rem;
@@ -5678,7 +5678,7 @@ button.tag:active,
 }
 
 .title.is-4 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .title.is-5 {
@@ -5722,7 +5722,7 @@ button.tag:active,
 }
 
 .subtitle.is-4 {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 .subtitle.is-5 {
@@ -22414,7 +22414,7 @@ has-background-danger.is-hoverable:active {
 }
 
 .is-size-4 {
-  font-size: 1.5rem !important;
+  font-size: 1.8rem !important;
 }
 
 .is-size-5 {
@@ -22440,7 +22440,7 @@ has-background-danger.is-hoverable:active {
     font-size: 4rem !important;
   }
   .is-size-4-mobile {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
   }
   .is-size-5-mobile {
     font-size: 1.25rem !important;
@@ -22463,7 +22463,7 @@ has-background-danger.is-hoverable:active {
     font-size: 4rem !important;
   }
   .is-size-4-tablet {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
   }
   .is-size-5-tablet {
     font-size: 1.25rem !important;
@@ -22486,7 +22486,7 @@ has-background-danger.is-hoverable:active {
     font-size: 4rem !important;
   }
   .is-size-4-touch {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
   }
   .is-size-5-touch {
     font-size: 1.25rem !important;
@@ -22509,7 +22509,7 @@ has-background-danger.is-hoverable:active {
     font-size: 4rem !important;
   }
   .is-size-4-desktop {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
   }
   .is-size-5-desktop {
     font-size: 1.25rem !important;
@@ -22532,7 +22532,7 @@ has-background-danger.is-hoverable:active {
     font-size: 4rem !important;
   }
   .is-size-4-widescreen {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
   }
   .is-size-5-widescreen {
     font-size: 1.25rem !important;
@@ -22555,7 +22555,7 @@ has-background-danger.is-hoverable:active {
     font-size: 4rem !important;
   }
   .is-size-4-fullhd {
-    font-size: 1.5rem !important;
+    font-size: 1.8rem !important;
   }
   .is-size-5-fullhd {
     font-size: 1.25rem !important;
@@ -23445,6 +23445,23 @@ button.dark-pink-background:hover {
 
 .column {
   max-width: 1000px;
+}
+
+.chord-text {
+  width: 50vw;
+  max-width: 500px;
+}
+
+.chord-arrow {
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+@media screen and (max-width: 480px) {
+  .chord-arrow {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
 }
 
 /*# sourceMappingURL=chord-translator.css.map */

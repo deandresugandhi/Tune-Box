@@ -40,16 +40,16 @@ const KeyInputDualHeader = ({ labelText, labelText2, fromKey, setFromKey, toKey,
             <li className={selectedHeader === 1 ? "is-active":""} onClick={() => setSelectedHeader(1)}>
               <a className="is-flex is-flex-direction-column">
                 <h2 class="subtitle is-5 is-size-6-mobile">{labelText}</h2>
-                <h2 class="subtitle is-2 is-size-2-mobile pink-text has-text-weight-bold key-display-margin">{fromKeyDisplay}</h2>
+                <h2 class="subtitle is-2 is-size-4-mobile pink-text has-text-weight-bold key-display-margin">{fromKeyDisplay}</h2>
               </a>
             </li>
             <li>
-              <i className="fa-solid fa-right-long fa-xl ml-5 mr-5"/>
+              <i className="fa-solid fa-right-long fa-xl chord-arrow"/>
             </li>
             <li className={selectedHeader === 2 ? "is-active":""} onClick={() => setSelectedHeader(2)}>
               <a className="is-flex is-flex-direction-column">
                 <h2 class="subtitle is-5 is-size-6-mobile">{labelText2}</h2>
-                <h2 class="subtitle is-2 is-size-2-mobile pink-text has-text-weight-bold key-display-margin">{toKeyDisplay}</h2>
+                <h2 class="subtitle is-2 is-size-4-mobile pink-text has-text-weight-bold key-display-margin">{toKeyDisplay}</h2>
               </a>
             </li>
           </ul>

@@ -4,9 +4,15 @@ import Upload from './Upload';
 import axios from 'axios';
 
 
-const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccidental, assignedKey, setAssignedKey }) => {
+const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccidental, assignedKey, setAssignedKey, instant=false }) => {
   const [downloadLoading, setDownloadLoading] = useState(false);
   const [firstDownload, setFirstDownload] = useState(false);
+  const [toTranspose, setToTranspose] = useState(false);
+
+  // Handle change event
+  const handleChange = (event) => {
+    setToTranspose(event.target.value);
+  };
 
   const handleFileChange = (event) => {
     const file = event.target.files[0];
@@ -62,17 +68,42 @@ const NumberToNotation = ({ wordDocument, setWordDocument, accidental, setAccide
                   <button type="button" className={`button is-size-4 is-size-5-mobile has-text-weight-bold m-2 ${accidental === "sharp" ? "is-dark has-text-black":"is-primary has-text-white"}`} onClick={() => {setAccidental("sharp")}}>♯</button>
               </div>
           </div>
-          <Upload handler={handleFileChange} wordDocument={wordDocument} />
-          <div class ="field">
-              <div class="control">
-                  <button class={`button is-dark has-text-black is-size-4 has-text-weight-bold m-2 ${downloadLoading ? "is-loading custom-loading":""}`} type="submit">Convert & Download</button>
-                  {firstDownload ? (
-                    <p className={`${downloadLoading ? "has-text-warning":"has-text-success"}`}>{`${downloadLoading ? "Please wait for file to download...":"Download Success!"}`}</p>
-                  ) : (
-                    <></>
-                  )}
+          {!instant ? (
+            <>
+            <Upload handler={handleFileChange} wordDocument={wordDocument} />
+              <div class ="field">
+                  <div class="control">
+                      <button class={`button is-dark has-text-black is-size-4 has-text-weight-bold m-2 ${downloadLoading ? "is-loading custom-loading":""}`} type="submit">Convert & Download</button>
+                      {firstDownload ? (
+                        <p className={`${downloadLoading ? "has-text-warning":"has-text-success"}`}>{`${downloadLoading ? "Please wait for file to download...":"Download Success!"}`}</p>
+                      ) : (
+                        <></>
+                      )}
+                  </div>
               </div>
-          </div>
+            </>
+          ) : (
+            <>
+              <div className="field is-flex is-flex-direction-column is-align-items-center">
+                <label className="label">Chords to Transpose</label>
+                <div className="control">
+                  <textarea 
+                    className="textarea chord-text" 
+                    placeholder="Type chords here, separated by whitespace"
+                    value={toTranspose}
+                    onChange={handleChange}
+                  />
+                </div>
+              </div>
+              <i className="fa-solid fa-down-long fa-2xl mt-6"/>
+              <div className="field mt-6 is-flex is-flex-direction-column is-align-items-center">
+                <label className="label">Transposed Chord</label>
+                <div className="control">
+                  <textarea className="textarea chord-text" value={toTranspose} readOnly></textarea>
+                </div>
+              </div>
+            </>
+          )}
       </form>
     );
 };

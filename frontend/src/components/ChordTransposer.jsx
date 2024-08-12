@@ -4,7 +4,7 @@ import NotationToNumber from './NotationToNumber';
 import NavBar from './NavBar';
 import axios from 'axios';
 import NavFooter from './NavFooter';
-import loadingURL from '../assets/loading.gif';
+import loadingURL from '../assets/loading-pink.gif';
 import KeyInputDualHeader from './KeyInputDualHeader';
 import Upload from './Upload';
 

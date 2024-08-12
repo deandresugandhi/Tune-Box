@@ -25,6 +25,7 @@ $family-primary: '"ofelia-display", sans-serif';
 $size-1: 5rem;
 $size-2: 3.1rem;
 $size-3: 4rem;
+$size-4: 1.8rem;
 $primary: $cyan-dark;
 $info: $cyan;
 $dark: $cyan-dark-2;
@@ -140,7 +141,6 @@ button.dark-pink-background:hover {
   background-color: $pinkish-dark-hover
 }
 
-
 .orange {
   color: #e87825;
 }
@@ -172,3 +172,20 @@ button.dark-pink-background:hover {
 .column {
   max-width: 1000px;
 }
+
+.chord-text {
+  width: 50vw;
+  max-width: 500px;
+}
+
+.chord-arrow {
+  margin-right: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+@media screen and (max-width: 480px) { 
+  .chord-arrow {
+    margin-right: 1rem;
+    margin-left: 1rem;
+  }
+} 

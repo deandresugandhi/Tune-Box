@@ -4,6 +4,7 @@ import ChordTransposer from './ChordTransposer'
 import Home from './Home'
 import About from './About'
 import NotFound from './NotFound'
+import InstantTranslate from './InstantTranslate'
 
 
 const App = () => {
@@ -14,6 +15,7 @@ const App = () => {
           <Route path="/" element={<Home />} />
           <Route path="/tools/chord-translator" element={<ChordTranslator />} />
           <Route path="/tools/chord-transposer" element={<ChordTransposer />} />
+          {/* <Route path="/tools/instant-translate" element={<InstantTranslate />} /> */}
           <Route path="/about" element={<About />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
