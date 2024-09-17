@@ -23340,9 +23340,27 @@ has-background-danger.is-hoverable:active {
   color: #af357e;
 }
 
+.tabs .tab-item.orange-tab.is-active {
+  color: #c76820;
+}
+
+.tabs .tab-item.blue-tab.is-active {
+  color: #02516e;
+}
+
 .pink-tab.is-toggle ul li.is-active a {
   background-color: #3f102c !important;
   border-color: #3f102c !important;
+}
+
+.orange-tab.is-toggle ul li.is-active a {
+  background-color: #47260c !important;
+  border-color: #47260c !important;
+}
+
+.blue-tab.is-toggle ul li.is-active a {
+  background-color: #002735 !important;
+  border-color: #002735 !important;
 }
 
 .navbar-item img {
@@ -23419,8 +23437,56 @@ button.dark-pink-background:hover {
   color: #e87825;
 }
 
+.orange-text {
+  color: #e87825;
+}
+
+.dark-orange-text {
+  color: #47260c;
+}
+
+.dark-orange-background {
+  background-color: #47260c;
+}
+
+.orange-background {
+  background-color: #c76820;
+}
+
+button.orange-background:hover {
+  background-color: #eb7c28;
+}
+
+button.dark-orange-background:hover {
+  background-color: #6b3811;
+}
+
 .blue {
   color: #00668c;
+}
+
+.blue-text {
+  color: #006e96;
+}
+
+.dark-blue-text {
+  color: #002735;
+}
+
+.dark-blue-background {
+  background-color: #002735;
+}
+
+.blue-background {
+  background-color: #02516e;
+}
+
+button.blue-background:hover {
+  background-color: #0079a5;
+}
+
+button.dark-blue-background:hover {
+  background-color: #003d53;
 }
 
 .green {

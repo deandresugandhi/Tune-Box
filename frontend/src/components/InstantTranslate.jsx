@@ -20,7 +20,7 @@ const InstantTranslate = () => {
         <div class="hero-body">
           <div class="container has-text-centered">
             <h1 class="title is-1 is-size-2-mobile has-text-weight-medium">INSTANT TRANSLATE</h1>
-            <div className="tabs is-centered is-toggle">
+            <div className="tabs orange-tab is-centered is-toggle">
                 <ul> 
                     <li className={translateMode ? "is-active":""} onClick={() => setTranslateMode(true)}>
                       <a class="subtitle is-5 is-size-7-mobile">Number<i className="fa-solid fa-caret-right fa-xs mb-1 ml-3 mr-3"/>
@@ -60,6 +60,7 @@ const InstantTranslate = () => {
                     setAccidental={setAccidental} 
                     assignedKey={assignedKey} 
                     setAssignedKey={setAssignedKey}
+                    instant={true}
                   />
                 )}
               </>

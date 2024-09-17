@@ -9,8 +9,6 @@ import KeyInputDualHeader from './KeyInputDualHeader';
 import Upload from './Upload';
 
 const ChordTransposer = () => {
-  // Truthy value of translateMode represents Number-To-Notation mode, falsy represents Notation-To-Number mode 
-  const [translateMode, setTranslateMode] = useState(true);
   const [accidental, setAccidental] = useState('flat');
   const [fromKey, setFromKey] = useState('C');
   const [toKey, setToKey] = useState('C');

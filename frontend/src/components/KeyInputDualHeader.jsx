@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import OnScreenPiano from './OnScreenPiano';
 
 
-const KeyInputDualHeader = ({ labelText, labelText2, fromKey, setFromKey, toKey, setToKey, accidental }) => {
+const KeyInputDualHeader = ({ labelText, labelText2, fromKey, setFromKey, toKey, setToKey, accidental, instant=false }) => {
   const [selectedHeader, setSelectedHeader] = useState(1)
   
   const generateAssignedKeyDisplay = (keyRef) => {
@@ -35,12 +35,12 @@ const KeyInputDualHeader = ({ labelText, labelText2, fromKey, setFromKey, toKey,
   return (
     <div class ="field">
       <div class="control custom-margin-1">
-        <div className="tabs pink-tab is-centered is-toggle">
+        <div className={`tabs ${instant == true ? "blue-tab" : "pink-tab"} is-centered is-toggle`}>
           <ul> 
             <li className={selectedHeader === 1 ? "is-active":""} onClick={() => setSelectedHeader(1)}>
               <a className="is-flex is-flex-direction-column">
                 <h2 class="subtitle is-5 is-size-6-mobile">{labelText}</h2>
-                <h2 class="subtitle is-2 is-size-4-mobile pink-text has-text-weight-bold key-display-margin">{fromKeyDisplay}</h2>
+                <h2 class={`subtitle is-2 is-size-4-mobile ${instant == true ? "blue-text" : "pink-text"} has-text-weight-bold key-display-margin`}>{fromKeyDisplay}</h2>
               </a>
             </li>
             <li>
@@ -49,7 +49,7 @@ const KeyInputDualHeader = ({ labelText, labelText2, fromKey, setFromKey, toKey,
             <li className={selectedHeader === 2 ? "is-active":""} onClick={() => setSelectedHeader(2)}>
               <a className="is-flex is-flex-direction-column">
                 <h2 class="subtitle is-5 is-size-6-mobile">{labelText2}</h2>
-                <h2 class="subtitle is-2 is-size-4-mobile pink-text has-text-weight-bold key-display-margin">{toKeyDisplay}</h2>
+                <h2 class={`subtitle is-2 is-size-4-mobile ${instant == true ? "blue-text" : "pink-text"} has-text-weight-bold key-display-margin`}>{toKeyDisplay}</h2>
               </a>
             </li>
           </ul>

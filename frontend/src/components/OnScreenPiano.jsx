@@ -45,7 +45,6 @@ const OnScreenPiano = ({ setAssignedKey, setFromKey, setToKey, selectedHeader, a
                     // Stop playing a given note - see notes below
                 }}
                 width={500}
-                keyboardShortcuts={keyboardShortcuts}
             />
         </div>
     );

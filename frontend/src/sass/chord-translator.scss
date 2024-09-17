@@ -15,6 +15,20 @@ $pinkish-dark: #3f102c;
 $pinkish-hover: rgb(206, 75, 153);
 $pinkish-dark-hover: #521a3c;
 
+//Orange Scheme
+$orangish: #c76820;;
+$orangish-2: #e87825;
+$orangish-dark: #47260c;
+$orangish-hover: #eb7c28;;
+$orangish-dark-hover: #6b3811;
+
+//Blue Scheme
+$bluish: #02516e;
+$bluish-2: #006e96;
+$bluish-dark: #002735;
+$bluish-hover: #0079a5;
+$bluish-dark-hover: #003d53;
+
 // Special Scheme
 $green-success: #18882a;
 $red-danger: #99100b;
@@ -65,10 +79,30 @@ $tabs-toggle-link-active-border-color: $cyan-dark;
   color: $pinkish;
 }
 
+.tabs .tab-item.orange-tab.is-active {
+  color: $orangish;
+}
+
+.tabs .tab-item.blue-tab.is-active {
+  color: $bluish;
+}
+
 // Conditional styling when .pink class is present
 .pink-tab.is-toggle ul li.is-active a {
   background-color: $pinkish-dark !important;
   border-color: $pinkish-dark !important;
+}
+
+// Conditional styling when .orange class is present
+.orange-tab.is-toggle ul li.is-active a {
+  background-color: $orangish-dark !important;
+  border-color: $orangish-dark !important;
+}
+
+// Conditional styling when .blue class is present
+.blue-tab.is-toggle ul li.is-active a {
+  background-color: $bluish-dark !important;
+  border-color: $bluish-dark !important;
 }
 
 .navbar-item img {
@@ -145,8 +179,56 @@ button.dark-pink-background:hover {
   color: #e87825;
 }
 
+.orange-text {
+  color: $orangish-2;
+}
+
+.dark-orange-text {
+  color: $orangish-dark;
+}
+
+.dark-orange-background {
+  background-color: $orangish-dark
+}
+
+.orange-background {
+  background-color: $orangish
+}
+
+button.orange-background:hover {
+  background-color: $orangish-hover
+}
+
+button.dark-orange-background:hover {
+  background-color: $orangish-dark-hover
+}
+
 .blue {
   color: #00668c
+}
+
+.blue-text {
+  color: $bluish-2;
+}
+
+.dark-blue-text {
+  color: $bluish-dark;
+}
+
+.dark-blue-background {
+  background-color: $bluish-dark
+}
+
+.blue-background {
+  background-color: $bluish
+}
+
+button.blue-background:hover {
+  background-color: $bluish-hover
+}
+
+button.dark-blue-background:hover {
+  background-color: $bluish-dark-hover
 }
 
 .green {
